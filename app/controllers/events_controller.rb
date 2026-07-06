@@ -18,9 +18,9 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
-      redirect_to events_path, notice: 'Created Successfully'
+      redirect_to index_event_manager_path, notice: 'Created Successfully'
     else
-      render :new, status: :unprocessable_entity
+      render :new, alert: "Failed to create event", status: :unprocessable_entity
     end
   end
 
@@ -44,7 +44,7 @@ class EventsController < ApplicationController
     if @event.update(event_params)
       redirect_to event_path(@event), notice: 'Event updated successfully!'
     else
-      render :edit, status: :unprocessable_entity
+      render :edit, alert: 'Failed to update event', status: :unprocessable_entity
     end
   end
 

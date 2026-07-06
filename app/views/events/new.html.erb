@@ -56,10 +56,8 @@
 <div class="row">
 <div class="col-md-6 mb-3">
 <%= f.label :event_manager_id, "Event Manager", class:"form-label" %>
-<%= f.select :event_manager_id,
-      User.where(role:"event_manager").map{|u| [u.name,u.id]},
-      {prompt:"Select Event Manager"},
-      class:"form-select" %>
+ <p class="form-control-plaintext"><%= current_user.name %></p>
+<%= f.hidden_field :event_manager_id, value: current_user.id %>
 </div>
 
 <div class="col-md-6 mb-3">
@@ -89,3 +87,5 @@
 </div>
 
 </div>
+
+        

@@ -14,8 +14,8 @@ class ReportsController < ApplicationController
   end
 
   def rsvp_statistics
-  @upcoming_events = Event.where('start_date >= ?', Date.today).order(:start_date)
-  @completed_events = Event.where('start_date < ?', Date.today).order(:start_date)
+  @upcoming_events = Event.where('start_date >= ?', Date.today).order(:start_date).paginate(page: params[:page], per_page: 3)
+  @completed_events = Event.where('start_date < ?', Date.today).order(:start_date).paginate(page: params[:page], per_page: 3)
   @total_invited = Guest.count
   @accepted = Rsvp.where(status: 'attending').count
   @declined = Rsvp.where(status: 'declined').count

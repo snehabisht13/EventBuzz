@@ -7,7 +7,7 @@ class Event < ApplicationRecord
   has_many :queries, dependent: :destroy
 
 
-  validates :date, presence: true
+  validates :start_date, presence: true
   validates :capacity, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validate :capacity_cannot_exceed_venue_capacity
 
