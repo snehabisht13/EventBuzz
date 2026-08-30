@@ -92,3 +92,4 @@ gem 'prawn-table'
 
 
 gem 'will_paginate', '~> 4.0'
+gem "resend"
