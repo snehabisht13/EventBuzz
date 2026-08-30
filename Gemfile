@@ -90,6 +90,5 @@ gem 'whenever', require: false
 gem 'prawn'
 gem 'prawn-table'
 
-
-gem 'will_paginate', '~> 4.0'
 gem "resend"
+gem 'will_paginate', '~> 4.0'
